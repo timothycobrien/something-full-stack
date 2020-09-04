@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Koa from 'koa';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,3 +16,11 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+const app = new Koa();
+
+app.use(async ctx => {
+  ctx.body = 'Hello World'
+});
+
+app.listen(3001);
